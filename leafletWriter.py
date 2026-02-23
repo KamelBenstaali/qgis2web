@@ -261,6 +261,9 @@ class LeafletWriter(Writer):
             if matchCRS and crsAuthId != 'EPSG:4326':
                 middle += crsScript(crsAuthId, crsProj4)
         middle += mapScript(extent, matchCRS, crsAuthId, maxZoom, minZoom, bounds)
+        middle += """
+        map.attributionControl.addAttribution('© FFBA 2026');
+        """
         if title != "":
             titleStart = titleSubScript(title, titleOptions)
             middle += titleStart
